@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-9 bg-white p-4 mb-5 mx-2 rounded custom-shadow">
+                <h2 class="text-center mb-4">Registration</h2>
+                <form action="{% url "user:registration" %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="id_firstName" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="id_firstName"
+                               placeholder="Your name"
+                               name="{% if form.firstname.value %}{{ form.firstname.value }}{% endif %}" required>
+                        {% if form.firstname.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.firstname.errors }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="id_lastName" class="form-label">Фамилия*</label>
+                        <input type="text" class="form-control" id="id_lastName"
+                               placeholder="Введите вашу фамилию"
+                               name="{% if form.lastname.value %}{{ form.lastname.value }}{% endif %}" required>
+                    </div>
+                    {% if form.lastname.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.lastname.errors }}</div>
+                        {% endif %}
+                    <div class="col-md-6 mb-3">
+                        <label for="id_username" class="form-label">Имя пользователя*</label>
+                        <input type="text" class="form-control" id="id_username"
+                               placeholder="Введите ваше имя пользователя"
+                               name="{% if form.username.value %}{{ form.username.value }}{% endif %}" required>
+                    </div>
+                    {% if form.username.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.username.errors }}</div>
+                        {% endif %}
+                    <div class="col-md-6 mb-3">
+                        <label for="id_email" class="form-label">Email*</label>
+                        <input type="email" class="form-control" id="id_email"
+                               placeholder="Введите ваш email"
+                               name="{% if form.email.value %}{{ form.email.value }}{% endif %}" required>
+                    </div>
+                    {% if form.email.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.email.errors }}</div>
+                        {% endif %}
+                    <div class="col-md-6 mb-3">
+                        <label for="id_password1" class="form-label">Пароль*</label>
+                        <input type="password" class="form-control" id="id_password1"
+                               placeholder="Введите пароль"
+                               name="{% if form.password1.value %}{{ form.password1.value }}{% endif %}" required>
+                    </div>
+                    {% if form.password1.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.password1.errors }}</div>
+                        {% endif %}
+                    <div class="col-md-6 mb-3">
+                        <label for="id_password2" class="form-label">Подтверждение пароля*</label>
+                        <input type="password" class="form-control" id="id_password2"
+                               placeholder="Подтвердите пароль"
+                               name="{% if form.password2.value %}{{ form.password2.value }}{% endif %}" required>
+                    </div>
+                    {% if form.password2.errors %}
+                        <div class="alert-danger alert-dismissible fade show"> {{ form.password2.errors }}</div>
+                        {% endif %}
+                </div>
+                <button type="submit"
+                        class="btn btn-dark btn-block">Зарегистрироваться
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

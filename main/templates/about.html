@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+{% endblock %}
+{% block content %}
+    <div class="mt-5 pt-5 bg-white custom-shadow rounded">
+        <h2 class="m-2 "><strong>{{ content }} </strong></h2>
+        <p class="m-2">some text</p>
+    </div>
+{% endblock %}
+
+
+{% block footer %}
+    <footer class="py-4 bg-dark">
+        <div class="container">
+            <div class="dh9">
+                <div class="d9h text-black-50">
+                    <span class="hd9">{{title}}</span>
+                    <a class="nav-link text-white" title="{{title}}" target="_blank" href="{% url "main:about" %}"
+                       class="a1l h9d">{{title}}</a>
+                    <a title="контактная информация" href="#" class="nav-link text-white">our contacts</a>
+                    <a title="Партнерство" href="#" class="nav-link text-white">work with us</a>
+                </div>
+                <div class="d9h text-white"><span class="hd9">Subscribe us</span>
+                    <a class="nav-link text-white" href="#"><i class="fa-brands fa-instagram"></i> instagram</a>
+                    <a class="nav-link text-white" href="#"><i class="fa-brands fa-telegram"></i> telegram</a>
+                    <a href="#" class="nav-link text-white"><i class="fa-brands fa-whatsapp"></i> whatsapp</a>
+                </div>
+            </div>
+            <p class="m-0 text-center text-white">Copyright &copy; Food-corp 2024</p>
+        </div>
+    </footer>
+{% endblock %}
