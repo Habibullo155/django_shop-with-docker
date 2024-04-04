@@ -13,6 +13,6 @@ Installation To install and run this project follow these steps:
 5. Build  the Docker containers: `docker-compose build`
 6. Aplly migrations : ` docker-compose run web python manage.py migrate `
 7. Create superuser: `docker-compose run web python manage.py createsuperuser`
-8. Run the Docker `containers: docker-compose up`
+8. Run the Docker containers: `docker-compose up`
     Usage
  Visit the site: http://127.0.0.1:8000/ Login with superuser credentials Browse products, add them to the cart, and complete the purchase Credits
